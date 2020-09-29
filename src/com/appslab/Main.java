@@ -1,11 +1,20 @@
 package com.appslab;
 
 public class Main {
-    public static void main(String[] args) {
-        System.out.println(Slices(10,5,3));
-    }
-    public static boolean Slices(int slices, int people, int pSlices)
+    public static void main(String[] args)
     {
-        return slices >= people * pSlices;
+        System.out.println(palindrome("monday"));
+    }
+    public static String palindrome(String original)
+    {
+        String reverse = "";
+        for(int i = original.length() - 1; i >= 0; i--)
+        {
+            reverse += original.charAt(i);
+        }
+        if(original.equals(reverse))
+            return ("String is a palindrome");
+        else
+            return ("String is not a palindrome");
     }
 }
