@@ -1,17 +1,21 @@
 package com.appslab;
 
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.Collections;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println(RPS("paper", "rock"));
+        System.out.println(sum());
     }
 
-    public static String RPS(String p1, String p2) {
-        String rock = "rock";
-        String paper = "paper";
-        String scissors = "scissors";
-        if (p1 == rock && p2 == scissors || p1 == scissors && p2 == paper || p1 == paper && p2 == rock)
-            return "Player 1 wins";
-        else
-            return "Player 2 wins";
+    public static int sum() {
+        var rand = new Random();
+        var arList = new ArrayList<Integer>();
+        for (int i = 0; i < 10; i++)
+            arList.add(rand.nextInt());
+        System.out.println(Collections.max(arList));
+        System.out.println(Collections.min(arList));
+        return (Collections.max(arList) - Collections.min(arList));
     }
 }
