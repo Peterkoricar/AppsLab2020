@@ -3,25 +3,23 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(oddEven());
+        int[] arrayOfIntegers = {4,5,1,7,2,8,3};
+        System.out.println(oddEven(arrayOfIntegers));
     }
 
-    public static int oddEven() {
-        var odds = new ArrayList<Integer>();
-        var even = new ArrayList<Integer>();
-        int number = 0;
-        int oddsC = 0;
-        int evenC = 0;
-        for (int i = 0; i < 5; i++) {
-            number++;
-            if (number % 2 == 0) {
-                even.add(number);
-                evenC += number;
-            } else {
-                odds.add(number);
-                oddsC += number;
-            }
+    public static int oddEven(int[] array)
+    {
+        int odd = 0;
+        int even = 0;
+        for (int i = 0; i < array.length; i++){
+             if(array[i] % 2 == 0)
+                 even+= array[i];
+             else
+                 odd+= array[i];
         }
-        return evenC - oddsC;
+        System.out.println(odd);
+        System.out.println(even);
+
+        return odd - even;
     }
 }
