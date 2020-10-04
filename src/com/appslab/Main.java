@@ -9,12 +9,10 @@ public class Main {
     public static int Multiply() {
         int a = 0;
         int b = 0;
-        int g = 0;
         var numbers = new ArrayList<Integer>();
         var rund = new Random();
         var rand = new Random();
-        g = rund.nextInt(25);
-        for (int c = 0; c < g; c++) {
+        for (int c = 0; c < rund.nextInt(25); c++) {
             numbers.add(rand.nextInt(25));
             b = numbers.size();
         }
