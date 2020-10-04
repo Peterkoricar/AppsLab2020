@@ -15,6 +15,7 @@ public class Main {
         for (int c = 0; c < rund.nextInt(25); c++) {
             numbers.add(rand.nextInt(25));
             b = numbers.size();
+
         }
         for(int i = 0; i < b; i++)
             a = numbers.get(i);
