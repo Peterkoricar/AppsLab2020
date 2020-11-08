@@ -1,25 +1,32 @@
 package com.appslab;
 
-import java.lang.reflect.Array;
+import java.util.stream.*;
+import java.util.Collections;
 import java.util.ArrayList;
 
 
 public class Main {
 
+
     public static void main(String[] args) {
+        Person john = new Person("John", 19, 556);
+        Person steve = new Person("Steve", 22, 600);
+        Person martin = new Person("Martin", 25, 1300);
+        var b = new ArrayList<Integer>();
         var a = new ArrayList<Integer>();
-        for (int i = 0; i < 2; i++) {
-            a.add(1);
-            a.add(2);
-        }
-        a.add(1);
-        a.add(3);
-        a.add(4);
-        a.add(5);
+        Collections.addAll(a,1,1,1,2,2,3,4,5);
+        Collections.addAll(b,1,1,1,2,2,3,4,5);
+        var people = new ArrayList<Person>();
+        Collections.addAll(people, john,steve,martin);
         AL(a);
         addIf(6, a);
         minusEven(a);
-    }
+        System.out.println(evenBack(b));
+        System.out.println(multiplyByLength(a));
+        sumBadget(people);
+        System.out.println(containsA(people));
+
+        }
 
     public static void AL(ArrayList<Integer> returnik) {
         if (returnik.isEmpty())
@@ -27,22 +34,34 @@ public class Main {
         else
             returnik.forEach(n -> System.out.print(n + " "));
     }
-
     public static void addIf(int f, ArrayList<Integer> returnik) {
         System.out.println(); //aby písalo na ďalší riadok
-        System.out.println("You are trying to add number " + f + " to the list.");
-        if (returnik.contains(f))
-            System.out.println("Oops, list already contains " + f);
-        else {
+        if(!returnik.contains(f)){
             returnik.add(f);
-            System.out.println("You had successfully added number " + f + "to the list.");
         }
     }
 
-    public static void minusEven(ArrayList<Integer> returnik)
-    {
-        System.out.println("You are trying to remove even numbers from the list");
-            returnik.removeIf(n-> n%2 == 0);
-            System.out.println("New form of the list is " + returnik + ".");
+    public static void minusEven(ArrayList<Integer> returnik) {
+        returnik.removeIf(n-> n%2 == 0);
+        System.out.println(returnik);
+
+    }
+
+    public static ArrayList<Integer> evenBack(ArrayList<Integer> returnik){
+        return returnik.stream().filter(n -> n%2 == 0).collect(Collectors.toCollection(ArrayList::new));
+    }
+
+    public static ArrayList<Integer> multiplyByLength(ArrayList<Integer> returnik){
+        return returnik.stream().map(n -> n*returnik.size()).collect(Collectors.toCollection(ArrayList::new));
+    }
+
+    public static void sumBadget(ArrayList<Person> peoplelist){
+        System.out.println(peoplelist.stream().mapToInt(person -> person.getBadget()).sum());
+    }
+
+    public static boolean containsA(ArrayList<Person> peoplelist){
+       return peoplelist.stream().anyMatch(person -> person.getName().contains("a"));
     }
 }
+
+
