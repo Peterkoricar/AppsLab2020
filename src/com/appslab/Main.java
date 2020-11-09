@@ -3,6 +3,7 @@ package com.appslab;
 import java.util.stream.*;
 import java.util.Collections;
 import java.util.ArrayList;
+import java.util.*;
 
 
 public class Main {
@@ -25,7 +26,8 @@ public class Main {
         System.out.println(multiplyByLength(a));
         sumBadget(people);
         System.out.println(containsA(people));
-
+        System.out.println(returnHS(b));
+        //System.out.println(returnHM(4));
         }
 
     public static void AL(ArrayList<Integer> returnik) {
@@ -62,6 +64,25 @@ public class Main {
     public static boolean containsA(ArrayList<Person> peoplelist){
        return peoplelist.stream().anyMatch(person -> person.getName().contains("a"));
     }
+
+    public static HashSet<Integer> returnHS (ArrayList<Integer> returnik){
+        HashSet<Integer> hs = new HashSet<Integer>(returnik);
+        hs.add(1);//V podstate nič nerobí :)
+        return hs;
+    }
+    /*public static HashMap<Integer, String> returnHM (int a){
+        var hm = new HashMap<Integer, String>();
+        if (a == 1)
+            hm.put(a,"Red");
+        else if (a == 2)
+            hm.put(a,"Green");
+        else if (a == 3)
+            hm.put(a,"Black");
+        else if (a == 4)
+            hm.put(a,"White");
+        return hm;
+        --------------------funguje to len to chcem skrátiť nejak ešte :)------------------------
+    }*/
 }
 
 
