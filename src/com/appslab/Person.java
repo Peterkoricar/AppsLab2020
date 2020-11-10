@@ -5,14 +5,14 @@ package com.appslab;
 public class Person {
     private String name;
     private int age;
-    private int badget;
+    private int budget;
 
     @Override
     public String toString() {
         return "People{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
-                ", badget=" + badget +
+                ", budget=" + budget +
                 '}';
     }
 
@@ -32,22 +32,22 @@ public class Person {
         this.age = age;
     }
 
-    public int getBadget() {
-        return badget;
+    public int getBudget() {
+        return budget;
     }
 
-    public void setBadget(int badget) {
-        this.badget = badget;
+    public void setBudget(int budget) {
+        this.budget = budget;
     }
 
     public Person(){
 
     }
-    public Person(String name, int age, int badget)
+    public Person(String name, int age, int budget)
     {
         this.name = name;
         this.age = age;
-        this.badget = badget;
+        this.budget = budget;
     }
 
 

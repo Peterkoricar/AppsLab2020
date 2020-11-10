@@ -15,6 +15,7 @@ public class Main {
         Person martin = new Person("Martin", 25, 1300);
         var b = new ArrayList<Integer>();
         var a = new ArrayList<Integer>();
+        var c = new HashMap<Integer, String>();
         Collections.addAll(a,1,1,1,2,2,3,4,5);
         Collections.addAll(b,1,1,1,2,2,3,4,5);
         var people = new ArrayList<Person>();
@@ -24,10 +25,14 @@ public class Main {
         minusEven(a);
         System.out.println(evenBack(b));
         System.out.println(multiplyByLength(a));
-        sumBadget(people);
+        sumBudget(people);
         System.out.println(containsA(people));
         System.out.println(returnHS(b));
-        //System.out.println(returnHM(4));
+        returnHM();
+        System.out.println(); //medzera
+        addNew(1,"Red", c);
+        addNew(1,"Red", c);
+        System.out.println(c);
         }
 
     public static void AL(ArrayList<Integer> returnik) {
@@ -37,7 +42,7 @@ public class Main {
             returnik.forEach(n -> System.out.print(n + " "));
     }
     public static void addIf(int f, ArrayList<Integer> returnik) {
-        System.out.println(); //aby písalo na ďalší riadok
+        System.out.println(); //medzera
         if(!returnik.contains(f)){
             returnik.add(f);
         }
@@ -46,7 +51,6 @@ public class Main {
     public static void minusEven(ArrayList<Integer> returnik) {
         returnik.removeIf(n-> n%2 == 0);
         System.out.println(returnik);
-
     }
 
     public static ArrayList<Integer> evenBack(ArrayList<Integer> returnik){
@@ -57,8 +61,8 @@ public class Main {
         return returnik.stream().map(n -> n*returnik.size()).collect(Collectors.toCollection(ArrayList::new));
     }
 
-    public static void sumBadget(ArrayList<Person> peoplelist){
-        System.out.println(peoplelist.stream().mapToInt(person -> person.getBadget()).sum());
+    public static void sumBudget(ArrayList<Person> peoplelist){
+        System.out.println(peoplelist.stream().mapToInt(person -> person.getBudget()).sum());
     }
 
     public static boolean containsA(ArrayList<Person> peoplelist){
@@ -70,19 +74,18 @@ public class Main {
         hs.add(1);//V podstate nič nerobí :)
         return hs;
     }
-    /*public static HashMap<Integer, String> returnHM (int a){
+    public static void returnHM (){
         var hm = new HashMap<Integer, String>();
-        if (a == 1)
-            hm.put(a,"Red");
-        else if (a == 2)
-            hm.put(a,"Green");
-        else if (a == 3)
-            hm.put(a,"Black");
-        else if (a == 4)
-            hm.put(a,"White");
-        return hm;
-        --------------------funguje to len to chcem skrátiť nejak ešte :)------------------------
-    }*/
+        hm.put(1, "Red");
+        hm.put(2, "Green");
+        hm.put(3, "Black");
+        hm.put(4, "White");
+        hm.forEach((n, m)-> System.out.println(n + " = " + m));
+    }
+
+    public static void addNew (int a, String key, Map<Integer, String> hm){
+        hm.putIfAbsent(a, key);
+    }
 }
 
 
