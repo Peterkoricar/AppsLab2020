@@ -1,10 +1,16 @@
 package com.appslab;
 
-public class Main {
+import java.util.ArrayList;
+import java.util.Collections;
 
+public class Main {
     public static void main(String[] args) {
-        Teacher teacher1 = new Teacher(900,300);
+        ArrayList<Job> list = new ArrayList<>();
+        Teacher teacher = new Teacher(900,300);
         Programmer programmer = new Programmer(1700, 200);
-        System.out.println(teacher1.getInfo() + " " + programmer.getInfo());
+        Driver driver = new Driver(600, 350);
+        Collections.addAll(list, teacher, programmer, driver);
+        list.forEach(n -> System.out.println(n.getInfo()));
+
     }
 }

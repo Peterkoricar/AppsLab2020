@@ -1,14 +1,9 @@
 package com.appslab;
 
-public class Programmer {
-    private float salary;
-    private int bonus;
+public class Programmer extends Job {
 
-    public Programmer(float salary, int bonus) {
-        this.salary = salary;
-        this.bonus = bonus;
-    }
-    public String getInfo(){
-        return ("Programmer's salarry is " + salary + " and bonus is " + bonus);
+    public Programmer (float salary, int bonus){
+        super(salary, bonus);
+        jobname = JobType.PROGRAMMER;
     }
 }
