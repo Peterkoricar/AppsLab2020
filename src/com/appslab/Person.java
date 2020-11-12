@@ -40,9 +40,6 @@ public class Person {
         this.budget = budget;
     }
 
-    public Person(){
-
-    }
     public Person(String name, int age, int budget)
     {
         this.name = name;

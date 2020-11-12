@@ -53,24 +53,24 @@ public class Main {
         System.out.println(returnik);
     }
 
-    public static ArrayList<Integer> evenBack(ArrayList<Integer> returnik){
+    public static List evenBack(List<Integer> returnik){
         return returnik.stream().filter(n -> n%2 == 0).collect(Collectors.toCollection(ArrayList::new));
     }
 
-    public static ArrayList<Integer> multiplyByLength(ArrayList<Integer> returnik){
+    public static List multiplyByLength(List<Integer> returnik){
         return returnik.stream().map(n -> n*returnik.size()).collect(Collectors.toCollection(ArrayList::new));
     }
 
-    public static void sumBudget(ArrayList<Person> peoplelist){
-        System.out.println(peoplelist.stream().mapToInt(person -> person.getBudget()).sum());
+    public static void sumBudget(List<Person> peoplelist){
+        System.out.println(peoplelist.stream().mapToInt(Person::getBudget).sum());
     }
 
-    public static boolean containsA(ArrayList<Person> peoplelist){
+    public static boolean containsA(List<Person> peoplelist){
        return peoplelist.stream().anyMatch(person -> person.getName().contains("a"));
     }
 
-    public static HashSet<Integer> returnHS (ArrayList<Integer> returnik){
-        HashSet<Integer> hs = new HashSet<Integer>(returnik);
+    public static Set returnHS (List<Integer> returnik){
+        HashSet<Integer> hs = new HashSet<>(returnik);
         hs.add(1);//V podstate nič nerobí :)
         return hs;
     }
