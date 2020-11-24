@@ -1,4 +1,4 @@
-package com.appslab;
+package com.appslab.model;
 
 public enum JobType {
     TEACHER("Teacher"), PROGRAMMER("Programmer"), DRIVER("Driver");
