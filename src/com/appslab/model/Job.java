@@ -19,9 +19,7 @@ public class Job {
         this.jobname = jobname;
     }
     public String getInfo(){
-        if(jobname == JobType.PROGRAMMER) {
-            return (jobname + " has a salary: " + (salary + bonus));
-        }
         return (jobname + " has a salary: " + salary + " and a bonus: " + bonus);
     }
+
 }
